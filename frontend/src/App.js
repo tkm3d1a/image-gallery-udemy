@@ -2,6 +2,7 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header";
 import Search from "./components/search";
+import ImageCard from "./components/imageCard";
 
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_PUB_KEY;
 // const UNSPLASH_BASE_URL = `https://api.unsplash.com/`;
@@ -21,7 +22,7 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        setImages([data, ...images]);
+        setImages([{ ...data, title: word }, ...images]);
       })
       .catch((err) => {
         console.log(err);
@@ -36,6 +37,9 @@ const App = () => {
     <div>
       <Header title="Tt's Image Gallery" />
       <Search word={word} setWord={setWord} handleSubmit={handleSearchSubmit} />
+      {images.map((image, i) => (
+        <ImageCard key={i} image={image} />
+      ))}
     </div>
   );
 };
