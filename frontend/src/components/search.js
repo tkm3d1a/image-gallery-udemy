@@ -7,13 +7,16 @@ const Search = ({ word, setWord, handleSubmit }) => {
       <Form onSubmit={handleSubmit}>
         <Row className="justify-content-center">
           <Col xs={12} md={8} lg={6}>
-            <Form.Control 
+            <Form.Control
               type="text"
               value={word}
               onChange={(e) => setWord(e.target.value)}
-              placeholder="Search for..." />
+              placeholder="Search for..."
+            />
           </Col>
-          <Button variant="primary" type="submit">Primary</Button>
+          <Button variant="primary" type="submit">
+            Primary
+          </Button>
         </Row>
       </Form>
     </Container>
