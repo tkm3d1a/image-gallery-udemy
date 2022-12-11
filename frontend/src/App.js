@@ -13,7 +13,8 @@ const App = () => {
   const [word, setWord] = useState("");
   const [images, setImages] = useState([]);
 
-  console.log(images);
+  // console.log(images);
+  // console.log(process.env);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
