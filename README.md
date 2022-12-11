@@ -21,6 +21,14 @@ Stage 1 complete:
 
 ## Stage 2 (Python/flask API)
 
+Worklog:
+_12-11-22_
+- Started up again with new branch
+- set up python environment using pipenv
+    - new process compared to python built in venv setup
+    - adds pipfile and lock file to recreate easier
+    - will need to add info on how to recreate/add later
+
 ## Stage 3 (DB integration?)
 
 ## Stage 4 (Dockerizing?)
