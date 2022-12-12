@@ -28,6 +28,8 @@ _12-11-22_
     - new process compared to python built in venv setup
     - adds pipfile and lock file to recreate easier
     - will need to add info on how to recreate/add later
+    - tested pipenv running of flask app
+
 
 ## Stage 3 (DB integration?)
 
