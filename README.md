@@ -21,6 +21,23 @@ Stage 1 complete:
 
 ## Stage 2 (Python/flask API)
 
+Worklog:
+_12-24-22_
+- Began integration of front end with self made API
+- Tested throughout with Postman
+- Added CORS to API app to allow cross origin requests
+- Integrated Python linter and autoformats
+- Have full new-image request implemented
+
+_12-11-22_
+- Started up again with new branch
+- set up python environment using pipenv
+    - new process compared to python built in venv setup
+    - adds pipfile and lock file to recreate easier
+    - will need to add info on how to recreate/add later
+    - tested pipenv running of flask app
+
+
 ## Stage 3 (DB integration?)
 
 ## Stage 4 (Dockerizing?)
