@@ -8,9 +8,22 @@ The intent behind this is not to build some MVP to show off, but I am attempting
 
 Once a "stage" is complete, I don't intend to go back and refactor anything, but may stylistcly update as I get further along.  My end goal is to be able to deploy this fully hosted using something like GCP or Azure.  That will be another event in and of it self though, so for now, I live on localhost...
 
+- [x] Stage 1
+    - React/Front end building blocks
+- [x] Stage 2
+    - Python/API service building blocks
+- [ ] Stage 3
+    - MongoDB database building blocks
+    - Dockerization?
+- [ ] Stage 4
+    - Cleanup/refinement?
+    - Additional features?
+- [ ] Stage 5
+    - Custom deployment (above and beyond course?)
+
 ## Stage 1 (React)
 
-Stage 1 complete:
+Stage 1 complete (10/01/2022):
 - built front end app
 - utilizes Unsplash api
 - no current db or backend
@@ -20,6 +33,18 @@ Stage 1 complete:
 - all current code contained in [FrontEnd](./frontend/) folder
 
 ## Stage 2 (Python/flask API)
+
+Stage 2 complete (12/24/2022):
+- Added api microservice for image requests
+    - Built using flask and requests
+    - utilized pipenv to virtualize environment
+- tested and worked with postman to verify
+- added cors to API to allow for local dev to work correctly
+- still no DB integration currently
+- api code and information in [API](./api/) folder
+- some frontend code changed to talk to new API service
+    - local environment variables and small code change in app.js
+    - no major layout or other changes currently
 
 Worklog:
 _12-24-22_
