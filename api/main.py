@@ -1,18 +1,24 @@
 # save this as app.py
-import requests
 import os
+import requests
 from dotenv import load_dotenv
 from flask import Flask, request
+from flask_cors import CORS
 
 load_dotenv(dotenv_path="./.env.local")
 
 UNSPLASH_URL="https://api.unsplash.com/photos/random/"
 UNSPLASH_KEY=os.environ.get("UNSPLASH_KEY", "")
+DEBUG=bool(os.environ.get("DEBUG", True))
 
 if not UNSPLASH_KEY:
     raise EnvironmentError("Please create/add the UnsplashAPI key to the .env.local file in the root directory")
 
 app = Flask(__name__)
+CORS(app)
+
+app.config["DEBUG"] = DEBUG
+
 
 @app.route("/")
 def home():
