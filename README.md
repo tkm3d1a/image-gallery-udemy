@@ -68,6 +68,12 @@ _12-11-22_
 Worklog:
 _12/26/22_
 - Dockerized api services
+    - first `Dockerfile` basics covered
 - Dockerized front end service
+- Set up and learned docker-compose.yml basics
+- Still having eslint .cache access issue, but it does not stop running of containers
+    - have found few stackoverflow issues matching this, but no solution yet
+    - might need to test in different environments?
+- Docker-compose set up to work correctly-ish
 
 ## Stage 4 (Dockerizing?)

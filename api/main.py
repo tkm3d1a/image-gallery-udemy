@@ -30,7 +30,7 @@ def home():
 @app.route("/new-image")
 def new_image():
     word = request.args.get("query")
-
+    # return {"word": word}
     headers = {"Accept-Version": "v1", "Authorization": "Client-ID " + UNSPLASH_KEY}
 
     params = {"query": word}

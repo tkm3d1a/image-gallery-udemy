@@ -15,7 +15,7 @@ const Search = ({ word, setWord, handleSubmit }) => {
             />
           </Col>
           <Button variant="primary" type="submit">
-            Primary
+            Search
           </Button>
         </Row>
       </Form>
