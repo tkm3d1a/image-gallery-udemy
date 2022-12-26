@@ -63,6 +63,11 @@ _12-11-22_
     - tested pipenv running of flask app
 
 
-## Stage 3 (DB integration?)
+## Stage 3 (Docker/DB integration)
+
+Worklog:
+_12/26/22_
+- Dockerized api services
+- Dockerized front end service
 
 ## Stage 4 (Dockerizing?)
