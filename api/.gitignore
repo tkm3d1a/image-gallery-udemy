@@ -1,3 +1,4 @@
 # python specific gitignores
 
 /.venv
+/__pycache__
