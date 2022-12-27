@@ -51,6 +51,7 @@ Stage 2 complete (12/24/2022):
     - no major layout or other changes currently
 
 Worklog:
+
 _12-24-22_
 - Began integration of front end with self made API
 - Tested throughout with Postman
@@ -81,6 +82,7 @@ Stage 3 complete (12/27/2022):
     - possible key and db exposure?
 
 Worklog:
+
 _12/27/22_
 - worked on updating wsl configs to fix issue with docker consuming resources
 - more familiarity with updating code and restarting/rebuilding docker containers
