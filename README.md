@@ -12,11 +12,15 @@ Once a "stage" is complete, I don't intend to go back and refactor anything, but
     - React/Front end building blocks
 - [x] Stage 2
     - Python/API service building blocks
-- [ ] Stage 3
+- [x] Stage 3
     - MongoDB database building blocks
-    - Dockerization?
+    - Dockerization
+    - Work on persistent db volumes
 - [ ] Stage 4
-    - Cleanup/refinement?
+    - saving images
+    - deleting images
+    - displaying saved images
+    - final clean up
     - Additional features?
 - [ ] Stage 5
     - Custom deployment (above and beyond course?)
@@ -65,7 +69,28 @@ _12-11-22_
 
 ## Stage 3 (Docker/DB integration)
 
+Stage 3 complete (12/27/2022):
+- All services dockerized
+    - 4 containers used:
+        - api
+        - frontend
+        - mongo
+        - mongo-express
+- No containers pushed public
+    - still need to identify proper security for this
+    - possible key and db exposure?
+
 Worklog:
+_12/27/22_
+- worked on updating wsl configs to fix issue with docker consuming resources
+- more familiarity with updating code and restarting/rebuilding docker containers
+- began work on next stage while working with entire web app running in docker container(s)
+- added save functionality to api service
+    - hides save button once an image is marked as saved in the DB
+    - prevents error with trying to save same image multiple times
+    - discovered error on reload when searching for string that returns no images
+        - need to tackle this in stage 5
+
 _12/26/22_
 - Dockerized api services
     - first `Dockerfile` basics covered
