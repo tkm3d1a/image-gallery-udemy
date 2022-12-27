@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header";
@@ -7,41 +7,34 @@ import ImageCard from "./components/imageCard";
 import Welcome from "./components/welcome";
 import { Container, Row, Col } from "react-bootstrap";
 
-// const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_PUB_KEY;
-// const UNSPLASH_BASE_URL = `https://api.unsplash.com/`;
 const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:5050";
 
 const App = () => {
   const [word, setWord] = useState("");
   const [images, setImages] = useState([]);
 
-  // console.log(images);
-  // console.log(process.env);
+  useEffect(() => {
+    const getSavedImages = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/images`);
+        setImages(res.data || []);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getSavedImages();
+  }, []);
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
-
-    // console.log("sending fetch request");
-    // fetch(`${API_URL}/new-image?query=${word}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log("adding found image");
-    //     setImages([{ ...data, title: word }, ...images]);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
     try {
-      // console.log("sending axios fetch request");
       const res = await axios.get(`${API_URL}/new-image?query=${word}`);
-      // console.log("adding found image");
       setImages([{ ...res.data, title: word }, ...images]);
     } catch (error) {
       console.log(error);
     }
 
-    // console.log("Clearing search form...");
     setWord(""); //reseting form feild after enter
   };
 
