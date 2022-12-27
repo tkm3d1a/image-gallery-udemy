@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header";
 import Search from "./components/search";
@@ -17,18 +18,30 @@ const App = () => {
   // console.log(images);
   // console.log(process.env);
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = async (e) => {
     e.preventDefault();
 
-    fetch(`${API_URL}/new-image?query=${word}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setImages([{ ...data, title: word }, ...images]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // console.log("sending fetch request");
+    // fetch(`${API_URL}/new-image?query=${word}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log("adding found image");
+    //     setImages([{ ...data, title: word }, ...images]);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
+    try {
+      // console.log("sending axios fetch request");
+      const res = await axios.get(`${API_URL}/new-image?query=${word}`);
+      // console.log("adding found image");
+      setImages([{ ...res.data, title: word }, ...images]);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // console.log("Clearing search form...");
     setWord(""); //reseting form feild after enter
   };
 
