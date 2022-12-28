@@ -74,5 +74,21 @@ def images():
         return {"inserted_id": inserted_id}
 
 
+@app.route("/images/<image_id>", methods=["DELETE"])  # type: ignore
+def single_image(image_id):
+    """
+    Handles deleting of single image
+    Methods: DELETE
+    """
+    if request.method == "DELETE":
+        del_result = image_collection.delete_one({"_id": image_id})
+        if del_result.deleted_count == 1:
+            return {"del_image": image_id}
+
+        return {"del_image": "None deleted"}, 501
+
+    return "incorrect api method", 501
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5050)
