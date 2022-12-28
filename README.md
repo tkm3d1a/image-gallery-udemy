@@ -103,4 +103,13 @@ _12/26/22_
     - might need to test in different environments?
 - Docker-compose set up to work correctly-ish
 
-## Stage 4 (Dockerizing?)
+## Stage 4 (Fianl additions)
+
+Worklog:
+
+_12/28/22_
+- Added images/\<id> route to handle rdeleting images
+    - tested workign with postman on localhost
+- Added front end update to actually remove image and refresh once done
+    - can delete both saved and unsaved images currently without errors
+    - verified page updates correctly

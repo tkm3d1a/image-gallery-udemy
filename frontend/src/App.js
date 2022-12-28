@@ -38,8 +38,18 @@ const App = () => {
     setWord(""); //reseting form feild after enter
   };
 
-  const handleDeleteImage = (id) => {
-    setImages(images.filter((image) => image.id !== id));
+  const handleDeleteImage = async (id) => {
+    // setImages(images.filter((image) => image.id !== id));
+
+    try {
+      const res_delete = await axios.delete(`${API_URL}/images/${id}`);
+      // setImages([{ ...res.data, title: word }, ...images]);
+      console.log(res_delete.data?.deleted_id);
+      const res_get = await axios.get(`${API_URL}/images`);
+      setImages(res_get.data || []);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSaveImage = async (id) => {
