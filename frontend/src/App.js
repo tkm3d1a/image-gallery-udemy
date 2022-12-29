@@ -5,6 +5,7 @@ import Header from "./components/header";
 import Search from "./components/search";
 import ImageCard from "./components/imageCard";
 import Welcome from "./components/welcome";
+import Loader from "./components/loader";
 import { Container, Row, Col } from "react-bootstrap";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:5050";
@@ -39,14 +40,12 @@ const App = () => {
   };
 
   const handleDeleteImage = async (id) => {
-    // setImages(images.filter((image) => image.id !== id));
-
     try {
       const res_delete = await axios.delete(`${API_URL}/images/${id}`);
-      // setImages([{ ...res.data, title: word }, ...images]);
-      console.log(res_delete.data?.deleted_id);
-      const res_get = await axios.get(`${API_URL}/images`);
-      setImages(res_get.data || []);
+      if (res_delete.data?.deleted_id) {
+        console.log(res_delete.data?.deleted_id);
+        setImages(images.filter((image) => image.id !== id));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -90,6 +89,7 @@ const App = () => {
           <Welcome />
         )}
       </Container>
+      <Loader />
     </div>
   );
 };

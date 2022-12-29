@@ -107,6 +107,13 @@ _12/26/22_
 
 Worklog:
 
+_12/29/22_
+- Started work on adding spinner component to main page for bad network situations
+    - Have new component set up, and alignment worked out
+    - not implemented based on network response times yet
+        - need to figure out how to have it go up once the image request is made?
+        - need to identify where this can be pulled from
+
 _12/28/22_
 - Added images/\<id> route to handle rdeleting images
     - tested workign with postman on localhost

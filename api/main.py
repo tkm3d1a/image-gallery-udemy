@@ -82,10 +82,14 @@ def single_image(image_id):
     """
     if request.method == "DELETE":
         del_result = image_collection.delete_one({"_id": image_id})
-        if del_result.deleted_count == 1:
-            return {"deleted_id": image_id}
 
-        return {"deleted_id": "None deleted"}, 205
+        if not del_result:
+            return {"error": "Image was not deleted, please try again"}, 500
+
+        if del_result.deleted_count == 0:
+            return {"error": "Image not found"}, 404
+
+        return {"deleted_id": image_id}
 
     return "incorrect api method", 501
 
