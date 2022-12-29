@@ -113,6 +113,7 @@ _12/29/22_
     - not implemented based on network response times yet
         - need to figure out how to have it go up once the image request is made?
         - need to identify where this can be pulled from
+- updated dockerfile for frontend to fix eslint cache permissons error
 
 _12/28/22_
 - Added images/\<id> route to handle rdeleting images
