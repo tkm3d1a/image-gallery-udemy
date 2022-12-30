@@ -17,11 +17,11 @@ Once a "stage" is complete, I don't intend to go back and refactor anything, but
     - Dockerization
     - Work on persistent db volumes
 - [ ] Stage 4
-    - saving images
-    - deleting images
-    - displaying saved images
-    - final clean up
-    - Additional features?
+    - [x] saving images
+    - [x] deleting images
+    - [x] displaying saved images
+    - [x] Loading animation for slow connection
+    - [ ] Update image cards to comply with unsplash reqs
 - [ ] Stage 5
     - Custom deployment (above and beyond course?)
 
@@ -106,6 +106,10 @@ _12/26/22_
 ## Stage 4 (Fianl additions)
 
 Worklog:
+
+_12/30/22_
+- Completed adding spinner component
+- Verified works and shows on simulated throttled network
 
 _12/29/22_
 - Started work on adding spinner component to main page for bad network situations
