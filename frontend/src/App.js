@@ -7,6 +7,8 @@ import ImageCard from "./components/imageCard";
 import Welcome from "./components/welcome";
 import Loader from "./components/loader";
 import { Container, Row, Col } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:5050";
 
@@ -20,9 +22,11 @@ const App = () => {
       try {
         const res = await axios.get(`${API_URL}/images`);
         setImages(res.data || []);
+        toast.success("Saved images downloaded!");
         setLoading(false);
       } catch (error) {
         console.log(error);
+        toast.error(error.message);
       }
     };
 
@@ -33,9 +37,11 @@ const App = () => {
     e.preventDefault();
     try {
       const res = await axios.get(`${API_URL}/new-image?query=${word}`);
+      toast.info(`Image ${word.toUpperCase()} was found!`);
       setImages([{ ...res.data, title: word }, ...images]);
     } catch (error) {
       console.log(error);
+      toast.error(error.message);
     }
 
     setWord(""); //reseting form feild after enter
@@ -46,10 +52,13 @@ const App = () => {
       const res_delete = await axios.delete(`${API_URL}/images/${id}`);
       if (res_delete.data?.deleted_id) {
         console.log(res_delete.data?.deleted_id);
+        // notify();
+        toast.error(`Deleted ${res_delete.data?.deleted_title.toUpperCase()}`);
         setImages(images.filter((image) => image.id !== id));
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.message);
     }
   };
 
@@ -64,9 +73,11 @@ const App = () => {
             image.id === id ? { ...image, isSaved: true } : image
           )
         );
+        toast.info(`Saved ${imageToBeSaved.title.toUpperCase()}`);
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.message);
     }
   };
 
@@ -101,6 +112,7 @@ const App = () => {
           </Container>
         </>
       )}
+      <ToastContainer position="bottom-right" autoClose={1000} />
     </div>
   );
 };

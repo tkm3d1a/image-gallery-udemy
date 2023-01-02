@@ -41,7 +41,6 @@ def new_image():
     Methods: GET
     """
     word = request.args.get("query")
-    # return {"word": word}
     headers = {"Accept-Version": "v1", "Authorization": "Client-ID " + UNSPLASH_KEY}
 
     params = {"query": word}
@@ -81,15 +80,16 @@ def single_image(image_id):
     Methods: DELETE
     """
     if request.method == "DELETE":
-        del_result = image_collection.delete_one({"_id": image_id})
+        # image_to_delete = image_collection.find_one_and_delete
+        del_result = image_collection.find_one_and_delete({"_id": image_id})
 
         if not del_result:
             return {"error": "Image was not deleted, please try again"}, 500
 
-        if del_result.deleted_count == 0:
-            return {"error": "Image not found"}, 404
+        # if not del_result.deleted_count == 0:
+        #     return {"error": "Image not found"}, 404
 
-        return {"deleted_id": image_id}
+        return {"deleted_id": image_id, "deleted_title": del_result["title"]}
 
     return "incorrect api method", 501
 
